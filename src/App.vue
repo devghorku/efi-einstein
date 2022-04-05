@@ -52,7 +52,9 @@ export default {
   components: {
     HelloWorld,
   },
-
+mounted(){
+  this.axios.get('poolpairs')
+},
   data: () => ({
     //
   }),
