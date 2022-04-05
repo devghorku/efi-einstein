@@ -49,8 +49,12 @@
                 <v-text-field label="Future Price" dense outlined class="pa-0" hide-details></v-text-field>
               </div>
             </v-row>
-            <v-row>
-              <v-col cols="12" md="6">
+            <v-row class="align-center text-center justify-center">
+              <v-col cols="12">
+                <h5 class="text-h5 py-4">Time Horizone</h5>
+              </v-col>
+
+              <v-col cols="12" md="12">
                 <v-slider
                     style="width: 700px;"
                     v-model="time"
@@ -62,7 +66,7 @@
                  md="4"
                  >
             <h6 class="text-h6 font-weight-bold">Pool APR</h6>
-            <h5 class="text-h5 font-weight-bold ripe--text">106.13%</h5>
+            <h5 class="text-h5 font-weight-bold ripe--text ml-8">106.13%</h5>
           </v-col>
         </v-row>
       </v-container>
