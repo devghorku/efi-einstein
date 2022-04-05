@@ -3,6 +3,7 @@
     <v-app-bar height="80px"
                color="white"
                light
+               app
                fixed
                elevation="1"
                class="px-0 px-md-12"
