@@ -5,6 +5,7 @@ import axios from "axios";
 import VueI18n from 'vue-i18n'
 import i18n from './i18n'
 Vue.use(VueI18n)
+import  "./assets/app.scss"
 axios.defaults.baseURL = 'https://ocean.defichain.com/v0/mainnet/';
 Vue.config.productionTip = false
 
