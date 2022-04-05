@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-app-bar height="80px"
-               app
                color="white"
                light
                fixed
@@ -44,7 +43,7 @@
         <template v-slot:append>
           <div class="pa-2">
             <v-btn color="errorLight" depressed dark block>
-              Donate
+              {{ $t('donate') }}
             </v-btn>
           </div>
         </template>
