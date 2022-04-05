@@ -32,12 +32,12 @@
         <v-list>
           <v-list-item>
             <v-list-item-title>
-              Einstein App
+              {{ $t('einstein_app') }}
             </v-list-item-title>
           </v-list-item>
           <v-list-item>
             <v-list-item-title>
-              Getting Started
+              {{ $t('getting_started') }}
             </v-list-item-title>
           </v-list-item>
         </v-list>

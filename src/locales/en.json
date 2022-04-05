@@ -1,3 +1,21 @@
 {
-  "donate": "Donate"
+  "donate": "Donate",
+  "einstein_app": "Einstein App",
+  "getting_started": "Getting Started",
+  "choose_pool": "Choose Pool",
+  "current_price": "Current Price",
+  "future_price": "Future Price",
+  "time_horizon": "Time Horizon",
+  "months": "months",
+  "pool_apr": "Pool APR",
+  "impermanent_loss": "Impermanent Loss",
+  "actual_return": "Actual Return",
+  "yearly": "yearly",
+  "your_timehorizon": "your timehorizon",
+  "your_investment": "Your Investment",
+  "total_value_if_hold": "Total value if hold",
+  "total_value_if_invested_for_6_month": "Total value if invested for 6 months",
+  "total_value_if_invested_for_1_year": "Total value if invested for one year",
+  "address": "Address",
+  "copyright": "Copyright"
 }

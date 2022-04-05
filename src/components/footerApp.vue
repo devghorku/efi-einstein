@@ -12,9 +12,9 @@
       </v-icon>
     </div>
     <v-spacer></v-spacer>
-    <div>Address:xxxxxx</div>
+    <div>{{$t('address')}}:xxxxxx</div>
     <v-spacer></v-spacer>
-    <div class="mr-10">&copy; copyright 2022</div>
+    <div class="mr-10">&copy; {{$t('copyright')}} 2022</div>
   </v-footer>
 </template>
 <script>

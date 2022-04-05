@@ -11,7 +11,7 @@
             <v-select
                 :items="pools"
                 outlined
-                label="Choose Pool"
+                :label="$t('choose_pool') "
                 item-text="displaySymbol"
                 v-model="poolSelected"
                 return-object
@@ -31,7 +31,7 @@
                 </v-btn>
               </v-col>
               <v-col cols="7" sm="5">
-                <v-text-field label="Current Price"
+                <v-text-field :label="$t('current_price') "
                               dense
                               solo
                               background-color="readOnly"
@@ -52,7 +52,7 @@
                 </v-btn>
               </v-col>
               <v-col cols="7" sm="5">
-                <v-text-field label="Current Price"
+                <v-text-field :label="$t('current_price') "
                               dense
                               solo
                               background-color="readOnly"
@@ -73,7 +73,7 @@
                 </v-btn>
               </v-col>
               <v-col cols="7" sm="5">
-                <v-text-field label="Future Price"
+                <v-text-field :label="$t('future_price') "
                               dense
                               solo
                               background-color="readOnly"
@@ -94,7 +94,7 @@
                 </v-btn>
               </v-col>
               <v-col cols="7" sm="5">
-                <v-text-field label="Future Price"
+                <v-text-field :label="$t('future_price') "
                               dense
                               solo
                               background-color="readOnly"
@@ -110,7 +110,7 @@
 
             <v-row class="align-center text-center justify-center">
               <v-col cols="12" >
-                <h5 class="text-h5 py-4">Time Horizone</h5>
+                <h5 class="text-h5 py-4">{{ $t('time_horizon') }}</h5>
               </v-col>
 
               <v-col cols="12" md="12">
@@ -119,7 +119,7 @@
                     step="1"
                     max="36"
                 ></v-slider>
-                <div>{{month}} months</div>
+                <div>{{month}} {{ $t('months') }}</div>
               </v-col>
             </v-row>
           </v-col>
@@ -127,41 +127,41 @@
                  md="4"
           >
             <div class="py-2">
-              <h6 class="text-h6 font-weight-bold">Pool APR</h6>
+              <h6 class="text-h6 font-weight-bold">{{ $t('pool_apr') }}</h6>
               <h5 class="text-h5 font-weight-bold ripe--text ml-15">106.13%</h5>
             </div>
             <div class="py-2">
-            <h6 class="text-h6 font-weight-bold">Impermanent Loss</h6>
+            <h6 class="text-h6 font-weight-bold">{{ $t('impermanent_loss') }}</h6>
             <h5 class="text-h5 font-weight-bold ripe--text ml-15">13.4%</h5>
             </div>
             <div class="py-2">
-            <h6 class="text-h6 font-weight-bold">Actual Return</h6>
+            <h6 class="text-h6 font-weight-bold">{{ $t('actual_return') }}</h6>
             <div class="d-flex">
               <h5 class="text-h5 font-weight-bold ripe--text ml-15">39.6% </h5>
-              <h6 class="text-h6 ripe--text ml-2">yearly</h6>
+              <h6 class="text-h6 ripe--text ml-2">{{ $t('yearly') }}</h6>
             </div>
             </div>
             <div class="d-flex">
               <h5 class="text-h5 font-weight-bold ripe--text ml-15">-4.56% </h5>
-              <h6 class="text-h6 ripe--text ml-2">your timehorizon</h6>
+              <h6 class="text-h6 ripe--text ml-2">{{ $t('your_timehorizon') }}</h6>
             </div>
           </v-col>
         </v-row>
         <v-row class="text-center justify-center my-10 d-flex flex-column">
-          <h6 class="text-h6 font-weight-light">Your Investment</h6>
+          <h6 class="text-h6 font-weight-light">{{ $t('your_investment') }}</h6>
           <div class="my-2">
             <v-btn class="py-1 px-16 text-h5" outlined>5,000</v-btn>
           </div>
-          <h5 class="text-h5 pt-10 font-weight-bold">Total value if hold</h5>
+          <h5 class="text-h5 pt-10 font-weight-bold">{{$t('total_value_if_hold')}}</h5>
           <h4 class="text-h4 ripe--text font-weight-bold">10,000</h4>
 
-          <h5 class="text-h5 pt-5 font-weight-bold">Total value if invested for 6 month</h5>
+          <h5 class="text-h5 pt-5 font-weight-bold">{{$t('total_value_if_invested_for_6_month')}}</h5>
           <div class="d-flex text-center justify-center pt-1">
             <h4 class="text-h4 ripe--text font-weight-bold">10,000 </h4>
             <h6 class="text-h6 red--text pl-2 pt-2">-457</h6>
           </div>
 
-          <h5 class="text-h5 pt-5 font-weight-bold">Total value if invested for 1 year</h5>
+          <h5 class="text-h5 pt-5 font-weight-bold">{{$t('total_value_if_invested_for_1_year')}}</h5>
           <div class="d-flex text-center justify-center pt-1">
             <h4 class="text-h4 ripe--text font-weight-bold">13,960 </h4>
             <h6 class="text-h6 red--text pl-2 pt-2">+3,960</h6>
