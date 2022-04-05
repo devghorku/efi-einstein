@@ -155,13 +155,13 @@
           <h5 class="text-h5 pt-10 font-weight-bold">{{$t('total_value_if_hold')}}</h5>
           <h4 class="text-h4 ripe--text font-weight-bold">10,000</h4>
 
-          <h5 class="text-h5 pt-5 font-weight-bold">{{$t('total_value_if_invested_for_6_month')}}</h5>
+          <h5 class="text-h5 pt-5 font-weight-bold px-2">{{$t('total_value_if_invested_for_6_month')}}</h5>
           <div class="d-flex text-center justify-center pt-1">
             <h4 class="text-h4 ripe--text font-weight-bold">10,000 </h4>
             <h6 class="text-h6 red--text pl-2 pt-2">-457</h6>
           </div>
 
-          <h5 class="text-h5 pt-5 font-weight-bold">{{$t('total_value_if_invested_for_1_year')}}</h5>
+          <h5 class="text-h5 pt-5 font-weight-bold px-2">{{$t('total_value_if_invested_for_1_year')}}</h5>
           <div class="d-flex text-center justify-center pt-1">
             <h4 class="text-h4 ripe--text font-weight-bold">13,960 </h4>
             <h6 class="text-h6 red--text pl-2 pt-2">+3,960</h6>
