@@ -99,9 +99,11 @@
 
               <v-col cols="12" md="12">
                 <v-slider
-                    style="width: 700px;"
-                    v-model="time"
+                    v-model="month"
+                    step="1"
+                    max="36"
                 ></v-slider>
+                <div>{{month}} months</div>
               </v-col>
             </v-row>
           </v-col>
@@ -193,8 +195,9 @@ export default {
     tokenB: {},
     tokenAPrice:0,
     tokenBPrice:0,
-    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
-    time: 50,
+    tokenAFuturePrice:0,
+    tokenBFuturePrice:0,
+    month: 6,
   }),
   methods: {
     async poolSelect() {
@@ -203,8 +206,10 @@ export default {
       try {
         const res1= await this.getPrice(this.tokenA.symbol)
         this.tokenAPrice=res1.price.aggregated.amount;
+        this.tokenAFuturePrice=res1.price.aggregated.amount;
         const res2= await this.getPrice(this.tokenB.symbol)
         this.tokenBPrice=res2.price.aggregated.amount;
+        this.tokenBFuturePrice=res2.price.aggregated.amount;
       }catch (e) {
         console.log(e)
       }
