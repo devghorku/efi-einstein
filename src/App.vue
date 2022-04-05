@@ -25,12 +25,12 @@
           >
             <v-row>
               <v-spacer/>
-              <v-col cols="5" sm="3">
-                <v-btn color="sky" block depressed class="pointer-none">
+              <v-col cols="5" sm="3" lg="2">
+                <v-btn color="sky" block depressed class="pointer-none" dark>
                   {{ tokenA.displaySymbol }}
                 </v-btn>
               </v-col>
-              <v-col cols="7" sm="5">
+              <v-col cols="7" sm="5" lg="4">
                 <v-text-field label="Current Price"
                               dense
                               solo
@@ -46,12 +46,12 @@
             </v-row>
             <v-row>
               <v-spacer/>
-              <v-col cols="5" sm="3">
-                <v-btn color="ripe" block depressed class="pointer-none">
+              <v-col cols="5" sm="3" lg="2">
+                <v-btn color="ripe" block depressed class="pointer-none" dark>
                   {{ tokenB.displaySymbol }}
                 </v-btn>
               </v-col>
-              <v-col cols="7" sm="5">
+              <v-col cols="7" sm="5" lg="4">
                 <v-text-field label="Current Price"
                               dense
                               solo
@@ -67,19 +67,18 @@
             </v-row>
             <v-row class="pt-4 pb-2">
               <v-spacer/>
-              <v-col cols="5" sm="3">
-                <v-btn color="sky" block depressed class="pointer-none">
+              <v-col cols="5" sm="3" lg="2">
+                <v-btn color="sky" block depressed class="pointer-none" dark>
                   {{ tokenA.displaySymbol }}
                 </v-btn>
               </v-col>
-              <v-col cols="7" sm="5">
-                <v-text-field label="Future Price"
+              <v-col cols="7" sm="5" lg="4">
+                <v-text-field placeholder="Future Price"
                               dense
-                              solo
-                              background-color="readOnly"
+                              outlined
+                              v-model="tokenAFuturePrice"
                               class="no-shadow"
-                              readonly
-
+                              type="number"
                               hide-details>
 
                 </v-text-field>
@@ -88,19 +87,18 @@
             </v-row>
             <v-row>
               <v-spacer/>
-              <v-col cols="5" sm="3">
-                <v-btn color="ripe" block depressed class="pointer-none">
+              <v-col cols="5" sm="3" lg="2">
+                <v-btn color="ripe" block depressed class="pointer-none" dark>
                   {{ tokenB.displaySymbol }}
                 </v-btn>
               </v-col>
-              <v-col cols="7" sm="5">
-                <v-text-field label="Future Price"
+              <v-col cols="7" sm="5" lg="4">
+                <v-text-field placeholder="Future Price"
                               dense
-                              solo
-                              background-color="readOnly"
+                              outlined
                               class="no-shadow"
-                              readonly
-
+                              type="number"
+                              v-model="tokenBFuturePrice"
                               hide-details>
 
                 </v-text-field>
@@ -109,37 +107,36 @@
             </v-row>
 
             <v-row class="align-center text-center justify-center">
-              <v-col cols="12" >
-                <h5 class="text-h5 py-4">Time Horizone</h5>
+              <v-col cols="12">
+                <h5 class="text-h5 pt-4 pt-lg-10">Time Horizone</h5>
               </v-col>
-
-              <v-col cols="12" md="12">
+              <v-col cols="12" md="8">
                 <v-slider
                     v-model="month"
                     step="1"
                     max="36"
                 ></v-slider>
-                <div>{{month}} months</div>
+                <div>{{ month }} months</div>
               </v-col>
             </v-row>
           </v-col>
           <v-col cols="12"
                  md="4"
           >
-            <div class="py-2">
+            <div class="pb-4">
               <h6 class="text-h6 font-weight-bold">Pool APR</h6>
-              <h5 class="text-h5 font-weight-bold ripe--text ml-15">106.13%</h5>
+              <h5 class="text-h5 font-weight-bold ripe--text ml-15">{{ (poolApr * 100).toFixed(2) }}%</h5>
             </div>
-            <div class="py-2">
-            <h6 class="text-h6 font-weight-bold">Impermanent Loss</h6>
-            <h5 class="text-h5 font-weight-bold ripe--text ml-15">13.4%</h5>
+            <div class="pb-4">
+              <h6 class="text-h6 font-weight-bold">Impermanent Loss</h6>
+              <h5 class="text-h5 font-weight-bold ripe--text ml-15">13.4%</h5>
             </div>
-            <div class="py-2">
-            <h6 class="text-h6 font-weight-bold">Actual Return</h6>
-            <div class="d-flex">
-              <h5 class="text-h5 font-weight-bold ripe--text ml-15">39.6% </h5>
-              <h6 class="text-h6 ripe--text ml-2">yearly</h6>
-            </div>
+            <div class="pb-4">
+              <h6 class="text-h6 font-weight-bold">Actual Return</h6>
+              <div class="d-flex">
+                <h5 class="text-h5 font-weight-bold ripe--text ml-15">39.6% </h5>
+                <h6 class="text-h6 ripe--text ml-2">yearly</h6>
+              </div>
             </div>
             <div class="d-flex">
               <h5 class="text-h5 font-weight-bold ripe--text ml-15">-4.56% </h5>
@@ -147,10 +144,16 @@
             </div>
           </v-col>
         </v-row>
-        <v-row class="text-center justify-center my-10 d-flex flex-column">
+        <v-row class="text-center justify-center my-10 d-flex flex-column"
+               v-if="Object.keys(poolSelected).length>0">
           <h6 class="text-h6 font-weight-light">Your Investment</h6>
-          <div class="my-2">
-            <v-btn class="py-1 px-16 text-h5" outlined>5,000</v-btn>
+          <div class="my-2 d-flex justify-center">
+            <v-text-field type="number"
+                          dense
+                          outlined
+                          style="max-width: 200px;"
+                          v-model="investment">
+            </v-text-field>
           </div>
           <h5 class="text-h5 pt-10 font-weight-bold">Total value if hold</h5>
           <h4 class="text-h4 ripe--text font-weight-bold">10,000</h4>
@@ -179,6 +182,7 @@
 import HeaderApp from "@/components/app-header";
 import axios from 'axios'
 import FooterApp from "@/components/footerApp";
+
 export default {
   name: 'App',
 
@@ -190,35 +194,106 @@ export default {
   async mounted() {
     await this.getPool()
   },
+  computed: {
+    L1() {
+      return this.investment ? this.investment : 0
+    },
+    D12() {
+      return this.month ? this.month : 0;
+    },
+    A12() {
+      return this.poolApr ? this.poolApr : 0
+    },
+    A1() {
+      return this.L1 / this.B1 / 2
+    },
+    B1() {
+      return this.tokenAPrice ? this.tokenAPrice : 0
+    },
+    C1() {
+      return this.L1 / this.D1 / 2
+    },
+    D1() {
+      return this.tokenBPrice ? this.tokenBPrice : 0
+    },
+    B4() {
+      return this.tokenAFuturePrice ? this.tokenAFuturePrice : 0
+    },
+    D4() {
+      return this.tokenBFuturePrice ? this.tokenBFuturePrice : 0
+    },
+    E1() {
+      return (this.B4 / this.B1) - 1
+    },
+    F1() {
+      return (this.D4 / this.D1) - 1
+    },
+    A4() {
+      return this.A1 * this.C1 / Math.sqrt(this.A1 * this.C1 * this.B1 * (1 + this.E1) / (this.D1 * (1 + this.F1)))
+    },
+    C4() {
+      return Math.sqrt(this.A1 * this.C1 * this.B1 * (1 + this.E1) / (this.D1 * (1 + this.F1)))
+    },
+    A8() {
+      return -(((this.A4 * this.B4 + this.C4 * this.D4) / (this.A1 * this.B4 + this.C1 * this.D4)) - 1)
+    },
+    A15() {
+      return (this.D18 / this.D24) - 1
+    },
+    A18() {
+      return (this.D21 / this.D24) - 1
+    },
+    D15(){
+      return this.A4 * this.B4 + this.C4 * this.D4
+    },
+    D24() {
+      return this.A1 * this.B4 + this.C1 * this.D4
+    },
+    D21(){
+      return this.D15+(this.L1*(this.A12*(this.D12/12)))
+    },
+    G21(){
+      return this.D21-this.D24
+    },
+    D18(){
+      return this.D15+(this.L1*(this.A12))
+    },
+    G18(){
+      return this.D18-this.D24
+    }
+  },
   data: () => ({
-    pools:[],
+    pools: [],
     poolSelected: {},
     tokenA: {},
     tokenB: {},
-    tokenAPrice:0,
-    tokenBPrice:0,
-    tokenAFuturePrice:0,
-    tokenBFuturePrice:0,
+    tokenAPrice: 0,
+    tokenBPrice: 0,
+    tokenAFuturePrice: 0,
+    tokenBFuturePrice: 0,
     month: 6,
+    poolApr: 0,
+    investment: 5.00
   }),
   methods: {
     async poolSelect() {
       this.tokenA = this.poolSelected.tokenA;
       this.tokenB = this.poolSelected.tokenB;
       try {
-        const res1= await this.getPrice(this.tokenA.symbol)
-        this.tokenAPrice=res1.price.aggregated.amount;
-        this.tokenAFuturePrice=res1.price.aggregated.amount;
-        const res2= await this.getPrice(this.tokenB.symbol)
-        this.tokenBPrice=res2.price.aggregated.amount;
-        this.tokenBFuturePrice=res2.price.aggregated.amount;
-      }catch (e) {
+        const res1 = await this.getPrice(this.tokenA.symbol)
+        this.tokenAPrice = res1.price.aggregated.amount.toFixed(2);
+        this.tokenAFuturePrice = res1.price.aggregated.amount.toFixed(2);
+        const res2 = await this.getPrice(this.tokenB.symbol)
+        this.tokenBPrice = res2.price.aggregated.amount.toFixed(2);
+        this.tokenBFuturePrice = res2.price.aggregated.amount.toFixed(2);
+        this.poolApr = this.poolSelected.apr.reward + this.poolSelected.apr.commission;
+      } catch (e) {
         console.log(e)
       }
     },
     async getPrice(token) {
       try {
-        const res = await axios.get('prices/'+token+'-USD')
+        const res = await axios.get('prices/' + token + '-USD')
         return res.data.data
       } catch (e) {
         console.log(e)
@@ -227,7 +302,8 @@ export default {
     async getPool() {
       try {
         const res = await axios.get('poolpairs')
-        this.pools=res.data.data
+        this.pools = res.data.data;
+
       } catch (e) {
         console.log(e)
       }
