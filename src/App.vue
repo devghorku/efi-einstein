@@ -26,7 +26,7 @@
             <v-row>
               <v-spacer/>
               <v-col cols="5" sm="3">
-                <v-btn color="sky" block depressed>
+                <v-btn color="sky" block depressed class="pointer-none">
                   {{ tokenA.displaySymbol }}
                 </v-btn>
               </v-col>
@@ -234,5 +234,8 @@ export default {
   .v-input__slot{
     box-shadow: none!important;
   }
+}
+.pointer-none{
+  pointer-events: none;
 }
 </style>
