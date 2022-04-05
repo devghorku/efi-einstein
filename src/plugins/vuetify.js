@@ -14,7 +14,7 @@ export default new Vuetify({
                 errorLight:'#FD49A0',
                 sky:'#48b4e0',
                 ripe:'#F9B253',
-                readOnly:'#F6F6F6'
+                readOnly:'#F6F6F6',
                 txt:'#696969'
             },
         },
